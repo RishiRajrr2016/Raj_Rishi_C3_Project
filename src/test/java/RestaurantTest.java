@@ -59,4 +59,27 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
+    //>>>>>>>>>>>>>>>>>>>>>>>Order<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void adding_single_item_to_the_cart_and_validating_the_total() {
+    	restaurant.addItemToTheCart("Sweet corn soup");
+    	assertEquals(119, restaurant.calculateTotalFromTheCart());
+    }
+    
+    @Test
+    public void adding_multiple_item_to_the_cart_and_validating_the_total() {
+    	restaurant.addItemToTheCart("Sweet corn soup");
+    	restaurant.addItemToTheCart("Vegetable lasagne");
+    	assertEquals(388, restaurant.calculateTotalFromTheCart());
+    }
+    
+    @Test
+    public void adding_removing_item_to_the_cart_and_validating_the_total() {
+    	restaurant.addItemToTheCart("Sweet corn soup");
+    	restaurant.addItemToTheCart("Vegetable lasagne");
+    	restaurant.removeItemFromTheCart("Sweet corn soup");
+    	assertEquals(269, restaurant.calculateTotalFromTheCart());
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<Order>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
