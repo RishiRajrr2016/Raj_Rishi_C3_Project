@@ -8,6 +8,7 @@ public class Restaurant {
     public LocalTime openingTime;
     public LocalTime closingTime;
     private List<Item> menu = new ArrayList<Item>();
+    private List<Item> order = new ArrayList<Item>();
 
     public Restaurant(String name, String location, LocalTime openingTime, LocalTime closingTime) {
         this.name = name;
@@ -52,15 +53,18 @@ public class Restaurant {
     }
     
     public void addItemToTheCart(String itemName) {
-    	
+    	order.add(this.findItemByName(itemName));
     }
     
     public void removeItemFromTheCart(String itemName) {
-    	
+    	order.remove(this.findItemByName(itemName));
     }
     
     public int calculateTotalFromTheCart() {
-    	return -999;
+    	int sum=0;
+    	for(Item orderItem:order)
+    		sum = sum + orderItem.getPrice();
+    	return sum;
     }
     
     public void displayDetails(){
