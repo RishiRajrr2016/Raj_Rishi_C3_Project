@@ -50,6 +50,19 @@ public class Restaurant {
 
         menu.remove(itemToBeRemoved);
     }
+    
+    public void addItemToTheCart(String itemName) {
+    	
+    }
+    
+    public void removeItemFromTheCart(String itemName) {
+    	
+    }
+    
+    public int calculateTotalFromTheCart() {
+    	return -999;
+    }
+    
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"
